@@ -1,3 +1,4 @@
+// ignore: unused_import
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketapp/shared/theme.dart';
@@ -56,13 +57,11 @@ class GetstartedPage extends StatelessWidget {
                         style: TextButton.styleFrom(
                           backgroundColor: kPrimaryColor,
                           shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(17),
+                            borderRadius: BorderRadius.circular(defaultRadius)
                           ),
                         ),
                         onPressed: () {
-                          if (kDebugMode) {
-                            print('object');
-                          }
+                          Navigator.pushNamed(context, '/sign-up');
                         },
                         child: Text(
                           'Get Started',
