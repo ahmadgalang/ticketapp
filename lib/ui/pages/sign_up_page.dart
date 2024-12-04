@@ -19,18 +19,18 @@ class _SignUpPageState extends State<SignUpPage> {
         margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
         child: ListView(
           children: [
-            Text('Join us and get \nyour next journey', style: blackTextStyle.copyWith(
-              fontSize: 24, fontWeight: semiBold
-            ),),
+            Text(
+              'Join us and get \nyour next journey',
+              style:
+                  blackTextStyle.copyWith(fontSize: 24, fontWeight: semiBold),
+            ),
             Container(
               margin: const EdgeInsets.only(top: 37),
               width: double.infinity,
-              height: 200,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
               decoration: BoxDecoration(
-                color: kWhiteColor,
-                borderRadius: BorderRadius.circular(defaultRadius)
-              ),
+                  color: kWhiteColor,
+                  borderRadius: BorderRadius.circular(defaultRadius)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
@@ -40,19 +40,112 @@ class _SignUpPageState extends State<SignUpPage> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text('Full nawme'),
-                         const SizedBox(height: 6),
+                        const SizedBox(height: 6),
                         TextFormField(
                           decoration: InputDecoration(
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.transparent ),
-                              borderRadius: BorderRadius.circular(defaultRadius)
-                            )
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: kPrimaryColor,
+                                  width: 2), // Border saat fokus
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color:
+                                      Colors.grey), // Border saat tidak fokus
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                            ),
                           ),
                         )
                       ],
-                      
-                    )
-                  )
+                    ),
+                  ),Container(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Full nawme'),
+                        const SizedBox(height: 6),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: kPrimaryColor,
+                                  width: 2), // Border saat fokus
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color:
+                                      Colors.grey), // Border saat tidak fokus
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                Container(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Full nawme'),
+                        const SizedBox(height: 6),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: kPrimaryColor,
+                                  width: 2), // Border saat fokus
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color:
+                                      Colors.grey), // Border saat tidak fokus
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                Container(
+                    width: double.infinity,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        const Text('Full nawme'),
+                        const SizedBox(height: 6),
+                        TextFormField(
+                          decoration: InputDecoration(
+                            focusedBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color: kPrimaryColor,
+                                  width: 2), // Border saat fokus
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                            ),
+                            enabledBorder: OutlineInputBorder(
+                              borderSide: BorderSide(
+                                  color:
+                                      Colors.grey), // Border saat tidak fokus
+                              borderRadius:
+                                  BorderRadius.circular(defaultRadius),
+                            ),
+                          ),
+                        )
+                      ],
+                    ),
+                  ),
+                
                 ],
               ),
             )
