@@ -17,3 +17,12 @@ TextStyle whiteTextStyle = GoogleFonts.poppins(color: kWhiteColor);
 TextStyle greyTextStyle = GoogleFonts.poppins(color: kGreyColor);
 TextStyle greenTextStyle = GoogleFonts.poppins(color: kGreenColor);
 TextStyle redTextStyle = GoogleFonts.poppins(color: kRedColor);
+
+BorderRadius defaultRadius = BorderRadius.circular(17);
+
+FontWeight light = FontWeight.w300;
+FontWeight normal = FontWeight.w400;
+FontWeight medium = FontWeight.w500;
+FontWeight semiBold = FontWeight.w600;
+FontWeight bold = FontWeight.w700;
+FontWeight extraBold = FontWeight.w800;
