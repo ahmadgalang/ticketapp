@@ -67,7 +67,7 @@ class GetstartedPage extends StatelessWidget {
                         child: Text(
                           'Get Started',
                           style: whiteTextStyle.copyWith(
-                            fontWeight: bold,
+                            fontWeight: semiBold,
                             fontSize: 18,
                           ),
                         ),
