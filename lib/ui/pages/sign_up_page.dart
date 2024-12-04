@@ -23,6 +23,7 @@ class _SignUpPageState extends State<SignUpPage> {
               fontSize: 24, fontWeight: semiBold
             ),),
             Container(
+              margin: const EdgeInsets.only(top: 37),
               width: double.infinity,
               height: 200,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
@@ -38,9 +39,15 @@ class _SignUpPageState extends State<SignUpPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        const Text('Full name'),
+                        const Text('Full nawme'),
+                         const SizedBox(height: 6),
                         TextFormField(
-                          
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderSide: BorderSide(color: Colors.transparent ),
+                              borderRadius: BorderRadius.circular(defaultRadius)
+                            )
+                          ),
                         )
                       ],
                       
