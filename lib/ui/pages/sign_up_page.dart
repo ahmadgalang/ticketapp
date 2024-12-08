@@ -38,7 +38,10 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
               const SizedBox(height: 6),
               TextFormField(
+                cursorColor: kBlackColor,
                 decoration: InputDecoration(
+                  hintText: 'Enter your Fullname',
+                  hintStyle: greyTextStyle,
                   focusedBorder: OutlineInputBorder(
                     borderSide: BorderSide(
                         color: kPrimaryColor, width: 2), // Border saat fokus
@@ -46,7 +49,7 @@ class _SignUpPageState extends State<SignUpPage> {
                   ),
                   enabledBorder: OutlineInputBorder(
                     borderSide: const BorderSide(
-                        color: Colors.grey), // Border saat tidak fokus
+                        color: Colors.grey, width: 0.5), // Border saat tidak fokus
                     borderRadius: BorderRadius.circular(defaultRadius),
                   ),
                 ),
@@ -95,10 +98,29 @@ class _SignUpPageState extends State<SignUpPage> {
             field(),
             field(),
             field(),
-            buttonSubmit()
+            buttonSubmit(),
           ],
         ),
       );
+    }
+
+    Widget tnc() {
+      return Center(
+          child: Container(
+        margin: EdgeInsets.only(top: 43),
+        child: GestureDetector(
+          onTap: () {
+            print('object');
+          },
+          child: Text(
+            'Terms and Conditions',
+            style: greyTextStyle.copyWith(
+                fontSize: 16,
+                fontWeight: light,
+                decoration: TextDecoration.underline),
+          ),
+        ),
+      ));
     }
 
     return SafeArea(
@@ -107,7 +129,7 @@ class _SignUpPageState extends State<SignUpPage> {
         body: Container(
           margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
           child: ListView(
-            children: [title(), inputSection()],
+            children: [title(), inputSection(), tnc()],
           ),
         ),
       ),
