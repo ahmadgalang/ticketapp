@@ -2,6 +2,8 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketapp/shared/theme.dart';
+import 'package:ticketapp/ui/widgets/custom_button.dart';
+import 'package:ticketapp/ui/widgets/custom_field.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});
@@ -14,7 +16,7 @@ class _SignUpPageState extends State<SignUpPage> {
   @override
   Widget build(BuildContext context) {
     Widget title() {
-      return Container(
+      return SizedBox(
         width: double.infinity,
         child: Text(
           'Join us and get \nyour next journey',
@@ -25,63 +27,32 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget inputSection() {
       Widget field() {
-        return Container(
-          margin: const EdgeInsets.only(bottom: 20),
-          width: double.infinity,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Full name',
-                style:
-                    blackTextStyle.copyWith(fontSize: 14, fontWeight: medium),
-              ),
-              const SizedBox(height: 6),
-              TextFormField(
-                cursorColor: kBlackColor,
-                decoration: InputDecoration(
-                  hintText: 'Enter your Fullname',
-                  hintStyle: greyTextStyle,
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: kPrimaryColor, width: 2), // Border saat fokus
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                  ),
-                  enabledBorder: OutlineInputBorder(
-                    borderSide: const BorderSide(
-                        color: Colors.grey, width: 0.5), // Border saat tidak fokus
-                    borderRadius: BorderRadius.circular(defaultRadius),
-                  ),
-                ),
-              )
-            ],
-          ),
+        return const Column(
+          children: [
+            CustomField(
+              title: 'Fullname',
+              placeholder: 'Enter your Fullname',
+            ),
+            CustomField(
+              title: 'Email Address',
+              placeholder: 'Enter your Email Address',
+              textInputType: TextInputType.emailAddress,
+            ),
+            CustomField(
+              title: 'Password',
+              placeholder: 'Enter your Password',
+              obsecureText: true,
+            ),
+            CustomField(
+              title: 'Hobby',
+              placeholder: 'Enter your Hobby',
+            )
+          ],
         );
       }
 
       Widget buttonSubmit() {
-        return Container(
-          margin: const EdgeInsets.only(top: 10, bottom: 10),
-          height: 55,
-          width: double.infinity,
-          child: TextButton(
-            style: TextButton.styleFrom(
-              backgroundColor: kPrimaryColor,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(defaultRadius)),
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '');
-            },
-            child: Text(
-              'Get Started',
-              style: whiteTextStyle.copyWith(
-                fontWeight: semiBold,
-                fontSize: 18,
-              ),
-            ),
-          ),
-        );
+        return const CustomButton();
       }
 
       return Container(
@@ -95,9 +66,6 @@ class _SignUpPageState extends State<SignUpPage> {
         child: Column(
           children: [
             field(),
-            field(),
-            field(),
-            field(),
             buttonSubmit(),
           ],
         ),
@@ -107,7 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
     Widget tnc() {
       return Center(
           child: Container(
-        margin: EdgeInsets.only(top: 43),
+        margin: const EdgeInsets.only(top: 43),
         child: GestureDetector(
           onTap: () {
             print('object');
@@ -126,11 +94,9 @@ class _SignUpPageState extends State<SignUpPage> {
     return SafeArea(
       child: Scaffold(
         backgroundColor: kBackgroundColor,
-        body: Container(
-          margin: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
-          child: ListView(
-            children: [title(), inputSection(), tnc()],
-          ),
+        body: ListView(
+          padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 30),
+          children: [title(), inputSection(), tnc()],
         ),
       ),
     );
