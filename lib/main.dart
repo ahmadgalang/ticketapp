@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ticketapp/ui/pages/bonus_page.dart';
 import 'package:ticketapp/ui/pages/get_started_page.dart';
 import 'package:ticketapp/ui/pages/sign_up_page.dart';
 import 'package:ticketapp/ui/pages/splash_page.dart';
@@ -15,7 +16,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(debugShowCheckedModeBanner: false, routes: {
       '/': (context) => const SplashPage(),
       '/get-started': (context) => const GetstartedPage(),
-      '/sign-up' : (context) => const SignUpPage()
+      '/sign-up' : (context) => const SignUpPage(),
+      '/bonus-page' : (context) => const BonusPage()
     });
   }
 }
