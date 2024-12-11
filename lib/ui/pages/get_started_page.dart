@@ -2,6 +2,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketapp/shared/theme.dart';
+import 'package:ticketapp/ui/widgets/custom_button.dart';
 
 class GetstartedPage extends StatelessWidget {
   const GetstartedPage({super.key});
@@ -35,45 +36,31 @@ class GetstartedPage extends StatelessWidget {
             ),
             Center(
               child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text(
-                      'Fly a Bird',
-                      style: whiteTextStyle.copyWith(
-                          fontSize: 32, fontWeight: semiBold),
-                    ),
-                    const SizedBox(height: 10),
-                    Text(
-                      'Explore new world with us and let \n yourself get an amazing experiences',
-                      style: whiteTextStyle.copyWith(
-                          fontSize: 16, fontWeight: light),
-                      textAlign: TextAlign.center,
-                    ),
-                    Container(
-                      margin: const EdgeInsets.only(top: 50, bottom: 80),
-                      height: 55,
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Fly a Bird',
+                    style: whiteTextStyle.copyWith(
+                        fontSize: 32, fontWeight: semiBold),
+                  ),
+                  const SizedBox(height: 10),
+                  Text(
+                    'Explore new world with us and let \n yourself get an amazing experiences',
+                    style: whiteTextStyle.copyWith(
+                        fontSize: 16, fontWeight: light),
+                    textAlign: TextAlign.center,
+                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 50, bottom: 80),
+                    child: CustomButton(
+                      onTap: () {
+                        Navigator.pushNamed(context, '/sign-up');
+                      },
                       width: 220,
-                      child: TextButton(
-                        style: TextButton.styleFrom(
-                          backgroundColor: kPrimaryColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(defaultRadius)
-                          ),
-                        ),
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/sign-up');
-                        },
-                        child: Text(
-                          'Get Started',
-                          style: whiteTextStyle.copyWith(
-                            fontWeight: semiBold,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ],
         ),

@@ -6,6 +6,7 @@ import 'package:ticketapp/ui/widgets/custom_button.dart';
 import 'package:ticketapp/ui/widgets/custom_field.dart';
 
 class SignUpPage extends StatefulWidget {
+
   const SignUpPage({super.key});
 
   @override
@@ -52,7 +53,11 @@ class _SignUpPageState extends State<SignUpPage> {
       }
 
       Widget buttonSubmit() {
-        return const CustomButton();
+        return CustomButton(
+          onTap: () {
+            Navigator.pushNamed(context, '/bonus-page');
+          },
+        );
       }
 
       return Container(
@@ -74,21 +79,22 @@ class _SignUpPageState extends State<SignUpPage> {
 
     Widget tnc() {
       return Center(
-          child: Container(
-        margin: const EdgeInsets.only(top: 43),
-        child: GestureDetector(
-          onTap: () {
-            print('object');
-          },
-          child: Text(
-            'Terms and Conditions',
-            style: greyTextStyle.copyWith(
-                fontSize: 16,
-                fontWeight: light,
-                decoration: TextDecoration.underline),
+        child: Container(
+          margin: const EdgeInsets.only(top: 43),
+          child: GestureDetector(
+            onTap: () {
+              
+            },
+            child: Text(
+              'Terms and Conditions',
+              style: greyTextStyle.copyWith(
+                  fontSize: 16,
+                  fontWeight: light,
+                  decoration: TextDecoration.underline),
+            ),
           ),
         ),
-      ));
+      );
     }
 
     return SafeArea(

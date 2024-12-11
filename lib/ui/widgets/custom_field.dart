@@ -46,7 +46,7 @@ class _CustomFieldState extends State<CustomField> {
                 if (value == null || value.isEmpty) {
                   return 'Email cannot be empty';
                 }
-                final emailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+');
+                final emailRegex = RegExp(r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$');
                 if (!emailRegex.hasMatch(value)) {
                   return 'Enter a valid email address';
                 }

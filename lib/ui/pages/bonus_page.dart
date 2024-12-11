@@ -130,7 +130,15 @@ class BonusPage extends StatelessWidget {
     }
 
     Widget startFlyNowButton() {
-      return const CustomButton();
+      return Container(
+        margin: const EdgeInsets.only(top: 50),
+        child: CustomButton(
+          width: 220,
+          onTap: () {
+            Navigator.pushNamed(context, '/main');
+          },
+        ),
+      );
     }
 
     return SafeArea(
