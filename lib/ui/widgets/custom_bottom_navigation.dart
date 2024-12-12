@@ -26,7 +26,6 @@ class CustomButtonNavigation extends StatelessWidget {
             width: 24,
             height: 24,
             decoration: BoxDecoration(
-              color: isSelected ? kPrimaryColor : kTransparant,
               image: DecorationImage(
                 image: AssetImage(imageUrl),
               ),

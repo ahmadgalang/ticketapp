@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ticketapp/shared/theme.dart';
+import 'package:ticketapp/ui/widgets/custom_new_destination.dart';
+import 'package:ticketapp/ui/widgets/custom_popular_destination.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -13,12 +15,21 @@ class HomePage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Ahmad,\nGalang Afianto', style: blackTextStyle.copyWith(fontSize: 18, fontWeight: bold),),
-                Text('Where to fly today?', style: greyTextStyle.copyWith(fontSize: 16, fontWeight: light),)
+                Text(
+                  'Ahmad,\nGalang Afianto',
+                  style:
+                      blackTextStyle.copyWith(fontSize: 18, fontWeight: bold),
+                  overflow: TextOverflow.ellipsis,
+                ),
+                Text(
+                  'Where to fly today?',
+                  style:
+                      greyTextStyle.copyWith(fontSize: 16, fontWeight: light),
+                )
               ],
             ),
           ),
-          SizedBox(height: 18),
+          const SizedBox(height: 18),
           Container(
             height: 50,
             width: 50,
@@ -35,11 +46,54 @@ class HomePage extends StatelessWidget {
     );
   }
 
+  Widget popularDestination() {
+    return Container(
+      margin: const EdgeInsets.only(top: 30, left: 24, right: 5),
+      child: const SingleChildScrollView(
+        scrollDirection: Axis.horizontal,
+        child: Row(
+          children: [
+            CustomPopularDestination(),
+            CustomPopularDestination(),
+            CustomPopularDestination(),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget titleNewDestination() {
+    return Container(
+      margin: EdgeInsets.only(top: 30, left: 24, bottom: 16),
+      child: Text(
+        'New This Year',
+        style: blackTextStyle.copyWith(fontSize: 18, fontWeight: semiBold),
+      ),
+    );
+  }
+
+  Widget newDestionation() {
+    return Container(
+      margin: const EdgeInsets.only(top: 20, bottom: 110),
+      child: const Column(
+        children: [
+          CustomNewDestination(),
+          CustomNewDestination(),
+          CustomNewDestination(),
+          CustomNewDestination()
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        header()
+        header(),
+        popularDestination(),
+        titleNewDestination(),
+        newDestionation()
       ],
     );
   }

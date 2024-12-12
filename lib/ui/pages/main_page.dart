@@ -7,11 +7,30 @@ class MainPage extends StatelessWidget {
   const MainPage({super.key});
 
   Widget buildContent(){
-    return HomePage();
+    return const HomePage();
   }
 
   Widget customNavigation() {
-    return const CustomButtonNavigation();
+    return Align(
+      alignment: Alignment.bottomCenter,
+      child: Container(
+        width: double.infinity,
+        height: 60,
+        margin: const EdgeInsets.only(bottom: 30, left: 24, right: 24, top: 50),
+        decoration: BoxDecoration(
+          color: kWhiteColor,
+          borderRadius: BorderRadius.circular(defaultRadius)
+        ),child: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CustomButtonNavigation(imageUrl: 'lib/assets/icon-home.png',isSelected: true,),
+            CustomButtonNavigation(imageUrl: 'lib/assets/icon-transaction.png'),
+            CustomButtonNavigation(imageUrl: 'lib/assets/icon-card.png'),
+            CustomButtonNavigation(imageUrl: 'lib/assets/icon-settings.png'),
+          ],
+        ),
+      ),
+    );
   }
 
   @override
