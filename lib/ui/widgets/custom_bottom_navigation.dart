@@ -4,88 +4,42 @@ import 'package:flutter/material.dart';
 import '../../shared/theme.dart';
 
 class CustomButtonNavigation extends StatelessWidget {
-  const CustomButtonNavigation({super.key});
+
+  final String imageUrl;
+  final bool isSelected;
+
+  const CustomButtonNavigation({super.key, required this.imageUrl, this.isSelected = false});
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-      alignment: Alignment.bottomCenter,
-      child: Container(
-        width: double.infinity,
-        height: 60,
-        decoration: BoxDecoration(
-          color: kWhiteColor,
-          borderRadius: BorderRadius.circular(defaultRadius),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            GestureDetector(
-              onTap: () {
-                if (kDebugMode) {
-                  print('object');
-                }
-              },
-              child: Container(
-                width: 24,
-                height: 24,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('lib/assets/icon-home.png'),
-                  ),
-                ),
+    return GestureDetector(
+      onTap: () {
+        if (kDebugMode) {
+          print('object');
+        }
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          SizedBox(),
+          Container(
+            width: 24,
+            height: 24,
+            decoration: BoxDecoration(
+              color: isSelected ? kPrimaryColor : kTransparant,
+              image: DecorationImage(
+                image: AssetImage(imageUrl),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                if (kDebugMode) {
-                  print('object');
-                }
-              },
-              child: Container(
-                width: 24,
-                height: 24,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('lib/assets/icon-transaction.png'),
-                  ),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                if (kDebugMode) {
-                  print('object');
-                }
-              },
-              child: Container(
-                width: 24,
-                height: 24,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('lib/assets/icon-card.png'),
-                  ),
-                ),
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                if (kDebugMode) {
-                  print('object');
-                }
-              },
-              child: Container(
-                width: 24,
-                height: 24,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                      image: AssetImage('lib/assets/icon-settings.png'),
-                      fit: BoxFit.cover),
-                ),
-              ),
-            ),
-          ],
-        ),
+          ),
+          Container(
+            width: 30,
+            height: 4,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(defaultRadius),
+                color: isSelected ? kPrimaryColor : kTransparant),
+          )
+        ],
       ),
     );
   }
