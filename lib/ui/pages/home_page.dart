@@ -62,25 +62,46 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget titleNewDestination() {
-    return Container(
-      margin: EdgeInsets.only(top: 30, left: 24, bottom: 16),
-      child: Text(
-        'New This Year',
-        style: blackTextStyle.copyWith(fontSize: 18, fontWeight: semiBold),
-      ),
-    );
-  }
-
   Widget newDestionation() {
     return Container(
-      margin: const EdgeInsets.only(top: 20, bottom: 110),
-      child: const Column(
+      margin: const EdgeInsets.only(bottom: 100),
+      child: Column(
         children: [
-          CustomNewDestination(),
-          CustomNewDestination(),
-          CustomNewDestination(),
-          CustomNewDestination()
+          Align(
+            alignment: Alignment.centerLeft,
+            child: Container(
+              margin: const EdgeInsets.only(top: 30, left: 24, bottom: 16),
+              child: Text(
+                'New This Year',
+                style: blackTextStyle.copyWith(fontSize: 18, fontWeight: semiBold),
+              ),
+            ),
+          ),
+          const CustomNewDestination(
+            imageUrl: 'lib/assets/image-destination-satu.png',
+            nameDestionation: 'Lake Ciliwung',
+            locationDestionation: 'Tangerang',
+            rating: 4.9,
+          ),
+          const CustomNewDestination(
+            imageUrl: 'lib/assets/image-destination-empat.png',
+            nameDestionation: 'Lake Ciliwung',
+            locationDestionation: 'Tangerang',
+            rating: 4.9,
+          ),
+          const CustomNewDestination(
+            imageUrl: 'lib/assets/image-destination-tiga.png',
+            nameDestionation: 'Lake Ciliwung',
+            locationDestionation: 'Tangerang',
+            rating: 4.9,
+          ),
+          const CustomNewDestination(
+            imageUrl: 'lib/assets/image-destination-dua.png',
+            nameDestionation:
+                'Lake CiliwungCiliwungCiliwungCiliwungCiliwungCiliwungCiliwung',
+            locationDestionation: 'Tangerang',
+            rating: 4.9,
+          ),
         ],
       ),
     );
@@ -89,12 +110,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListView(
-      children: [
-        header(),
-        popularDestination(),
-        titleNewDestination(),
-        newDestionation()
-      ],
+      children: [header(), popularDestination(), newDestionation()],
     );
   }
 }

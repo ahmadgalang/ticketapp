@@ -21,7 +21,7 @@ class CustomButtonNavigation extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(),
+          const SizedBox(),
           Container(
             width: 24,
             height: 24,

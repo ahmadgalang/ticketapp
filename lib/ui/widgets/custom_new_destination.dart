@@ -1,17 +1,25 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:ticketapp/shared/theme.dart';
 
 class CustomNewDestination extends StatelessWidget {
-  const CustomNewDestination({super.key});
+
+  final String imageUrl;
+  final String nameDestionation;
+  final String locationDestionation;
+  final double rating;
+
+  const CustomNewDestination({super.key, required this.imageUrl, required this.nameDestionation, required this.locationDestionation, required this.rating});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return GestureDetector(
+      onTap: () {
+        Navigator.pushNamed(context, '/detail-page');
+      },
       child: Container(
         height: 90,
-        margin: EdgeInsets.fromLTRB(24, 0, 24, 16),
-        padding: EdgeInsets.all(10),
+        margin: const EdgeInsets.fromLTRB(24, 0, 24, 16),
+        padding: const EdgeInsets.all(10),
         width: double.infinity,
         decoration: BoxDecoration(
             color: kWhiteColor,
@@ -25,38 +33,50 @@ class CustomNewDestination extends StatelessWidget {
                 borderRadius: BorderRadius.circular(defaultRadius),
                 image: DecorationImage(
                   fit: BoxFit.cover,
-                  image: AssetImage('lib/assets/image-destination-satu.png'),
+                  image: AssetImage(imageUrl),
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(left: 16),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text(
-                    'data',
-                    style: blackTextStyle.copyWith(
-                        fontSize: 14, fontWeight: medium),
-                  ),
-                  Text(
-                    'data',
-                    style: blackTextStyle.copyWith(
-                        fontSize: 14, fontWeight: medium),
-                  ),
-                ],
-              ),
-            ),
-            Container(
-              height: 24,
-              width: 24,
-              decoration: const BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage('lib/assets/icon-star.png'),
+            Expanded(
+              child: Container(
+                margin: const EdgeInsets.only(left: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      nameDestionation,
+                      style:
+                          blackTextStyle.copyWith(fontSize: 16, fontWeight: bold),
+                          overflow: TextOverflow.ellipsis,
+                    ),
+                    Text(
+                      locationDestionation,
+                      style:
+                          greyTextStyle.copyWith(fontSize: 14, fontWeight: light),
+                          overflow: TextOverflow.ellipsis,
+                    ),
+                  ],
                 ),
               ),
             ),
-            Text('4.6')
+            Row(
+              children: [
+                Container(
+                  height: 24,
+                  width: 24,
+                  decoration: const BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('lib/assets/icon-star.png'),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 5,),
+                Text(rating.toString(),
+                    style: blackTextStyle.copyWith(
+                        fontSize: 16, fontWeight: bold))
+              ],
+            ),
           ],
         ),
       ),
