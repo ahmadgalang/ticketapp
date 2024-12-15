@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ticketapp/shared/theme.dart';
+import 'package:ticketapp/ui/widgets/custom_button.dart';
+import 'package:ticketapp/ui/widgets/interest_item.dart';
+import 'package:ticketapp/ui/widgets/photo_item.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage({super.key});
@@ -39,23 +42,55 @@ class DetailPage extends StatelessWidget {
               ),
             ),
             Container(
-              margin: const EdgeInsets.only(left: 24, top: 300),
-              child: Column(
+              margin: EdgeInsets.only(
+                  left: defaultMargin, top: 260, right: defaultMargin),
+              width: double.infinity,
+              child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'Lake Ciliwung',
-                    style:
-                        whiteTextStyle.copyWith(fontSize: 24, fontWeight: bold),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Lake Ciliwung',
+                        style: whiteTextStyle.copyWith(
+                            fontSize: 24, fontWeight: bold),
+                      ),
+                      const SizedBox(
+                        height: 3,
+                      ),
+                      Text(
+                        'Tangerang',
+                        style: whiteTextStyle.copyWith(
+                            fontSize: 16, fontWeight: light),
+                      ),
+                    ],
                   ),
-                  const SizedBox(
-                    height: 6,
-                  ),
-                  Text(
-                    'Tangerang',
-                    style: whiteTextStyle.copyWith(
-                        fontSize: 16, fontWeight: light),
-                  ),
+                  Container(
+                    margin: const EdgeInsets.only(top: 15),
+                    child: Row(
+                      children: [
+                        Container(
+                          height: 24,
+                          width: 24,
+                          decoration: const BoxDecoration(
+                            image: DecorationImage(
+                              image: AssetImage('lib/assets/icon-star.png'),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 5,
+                        ),
+                        Text(
+                          '4.7',
+                          style: whiteTextStyle.copyWith(
+                              fontSize: 16, fontWeight: bold),
+                        ),
+                      ],
+                    ),
+                  )
                 ],
               ),
             )
@@ -64,51 +99,148 @@ class DetailPage extends StatelessWidget {
       );
     }
 
-    Widget cardInfo() {
-      return Container(
-        margin: EdgeInsets.only(
-            left: defaultMargin, right: defaultMargin, top: 400, bottom: 30),
-        width: double.infinity,
-        height: 446,
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-        decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(defaultRadius),
-            color: kWhiteColor),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              margin: EdgeInsets.only(bottom: 6),
-              child: Text(
-                'About',
-                style: blackTextStyle.copyWith(fontSize: 16, fontWeight: bold),
+    Widget content() {
+      Widget priceButton() {
+        return Container(
+          margin: EdgeInsets.only(
+              top: 10, left: defaultMargin, right: defaultMargin),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'IDR. 5.000.000',
+                    style:
+                        blackTextStyle.copyWith(fontSize: 16, fontWeight: bold),
+                  ),
+                  const SizedBox(height: 4),
+                  Text(
+                    'Per Orang',
+                    style:
+                        greyTextStyle.copyWith(fontSize: 16, fontWeight: light),
+                  ),
+                ],
               ),
+              CustomButton(
+                onTap: () {},
+                buttonName: 'Book Now',
+                width: 170,
+              )
+            ],
+          ),
+        );
+      }
+
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Container(
+            margin: EdgeInsets.only(
+                left: defaultMargin,
+                right: defaultMargin,
+                top: 370,
+                bottom: 10),
+            width: double.infinity,
+            height: 446,
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(defaultRadius),
+                color: kWhiteColor),
+            child: ListView(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    // Note : About
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10),
+                      child: Text(
+                        'About',
+                        style: blackTextStyle.copyWith(
+                            fontSize: 16, fontWeight: bold),
+                      ),
+                    ),
+                    Text(
+                      'Berada di jalur jalan provinsi yang menghubungkan Denpasar\nSingaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
+                      style: blackTextStyle.copyWith(
+                          fontSize: 14, fontWeight: light, height: 2),
+                    ),
+                    // Note : Photos
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10, top: 20),
+                      child: Text(
+                        'Photos',
+                        style: blackTextStyle.copyWith(
+                            fontSize: 16, fontWeight: bold),
+                      ),
+                    ),
+                    const SingleChildScrollView(
+                      scrollDirection: Axis.horizontal,
+                      child: Row(
+                        children: [
+                          PhotoItem(
+                            imageUrl: 'lib/assets/image-destination-satu.png',
+                          ),
+                          PhotoItem(
+                            imageUrl: 'lib/assets/image-destination-dua.png',
+                          ),
+                          PhotoItem(
+                            imageUrl: 'lib/assets/image-destination-tiga.png',
+                          ),
+                          PhotoItem(
+                            imageUrl: 'lib/assets/image-destination-empat.png',
+                          )
+                        ],
+                      ),
+                    ),
+                    // Note : Interests
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 10, top: 20),
+                      child: Text(
+                        'Interests',
+                        style: blackTextStyle.copyWith(
+                            fontSize: 16, fontWeight: bold),
+                      ),
+                    ),
+                    const Column(
+                      children: [
+                        Column(
+                          children: [
+                            Row(
+                              children: [
+                                InterestItem(itemName: 'Kids Park'),
+                                InterestItem(itemName: 'Kids Park'),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                InterestItem(itemName: 'Kids Park'),
+                                InterestItem(itemName: 'Kids Park'),
+                              ],
+                            )
+                          ],
+                        )
+                      ],
+                    )
+                  ],
+                ),
+              ],
             ),
-            Text(
-              'Berada di jalur jalan provinsi yang menghubungkan Denpasar\nSingaraja serta letaknya yang dekat dengan Kebun Raya Eka Karya menjadikan tempat Bali.',
-              style: blackTextStyle.copyWith(fontSize: 14, fontWeight: light),
-            ),
-            Container(
-              margin: EdgeInsets.only(top: 20, bottom: 6),
-              child: Text(
-                'Photos',
-                style: blackTextStyle.copyWith(fontSize: 16, fontWeight: bold),
-              ),
-            ),
-          ],
-        ),
+          ),
+          priceButton()
+        ],
       );
     }
 
     return SafeArea(
       child: Scaffold(
         backgroundColor: kBackgroundColor,
-        body: ListView(
-          children: [
-            Stack(
-              children: [backgroundImage(), cardInfo()],
-            ),
-          ],
+        body: SingleChildScrollView(
+          child: Stack(
+            children: [backgroundImage(), content()],
+          ),
         ),
       ),
     );

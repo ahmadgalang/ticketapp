@@ -56,7 +56,7 @@ class _SignUpPageState extends State<SignUpPage> {
         return CustomButton(
           onTap: () {
             Navigator.pushNamed(context, '/bonus-page');
-          },
+          }, buttonName: 'Submit',
         );
       }
 

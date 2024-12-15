@@ -133,6 +133,7 @@ class BonusPage extends StatelessWidget {
       return Container(
         margin: const EdgeInsets.only(top: 50),
         child: CustomButton(
+          buttonName: 'Start Fly Now',
           width: 220,
           onTap: () {
             Navigator.pushNamed(context, '/main');

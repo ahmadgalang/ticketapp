@@ -56,7 +56,7 @@ class GetstartedPage extends StatelessWidget {
                       onTap: () {
                         Navigator.pushNamed(context, '/sign-up');
                       },
-                      width: 220,
+                      width: 220, buttonName: 'Get Started',
                     ),
                   )
                 ],

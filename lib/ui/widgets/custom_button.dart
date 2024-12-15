@@ -6,12 +6,14 @@ class CustomButton extends StatelessWidget {
   final double height;
   final double width;
   final Function() onTap;
+  final String buttonName;
 
   const CustomButton(
       {super.key,
       this.height = 55,
       this.width = double.infinity,
-      required this.onTap});
+      required this.onTap,
+      required this.buttonName});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +29,7 @@ class CustomButton extends StatelessWidget {
         ),
         onPressed: onTap,
         child: Text(
-          'Get Started',
+          buttonName,
           style: whiteTextStyle.copyWith(
             fontWeight: semiBold,
             fontSize: 18,
