@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketapp/shared/theme.dart';
+import 'package:ticketapp/ui/widgets/seat_item.dart';
 
 class ChooseSeatPage extends StatelessWidget {
   const ChooseSeatPage({super.key});
@@ -8,7 +9,7 @@ class ChooseSeatPage extends StatelessWidget {
   Widget build(BuildContext context) {
     Widget title() {
       return Container(
-        margin: EdgeInsets.only(top: 30, left: 24, right: 24),
+        margin: const EdgeInsets.only(top: 30, left: 24, right: 24),
         child: Text(
           'Select Your\nFavorite Seat',
           style: blackTextStyle.copyWith(fontSize: 24, fontWeight: bold),
@@ -18,7 +19,7 @@ class ChooseSeatPage extends StatelessWidget {
 
     Widget statusSeat() {
       return Container(
-        margin: EdgeInsets.only(top: 30, left: 24, right: 24),
+        margin: const EdgeInsets.only(top: 30, left: 24, right: 24),
         child: Row(
           children: [
             Row(
@@ -27,17 +28,17 @@ class ChooseSeatPage extends StatelessWidget {
                 Container(
                   width: 16,
                   height: 16,
-                  margin: EdgeInsets.only(right: 6),
+                  margin: const EdgeInsets.only(right: 6),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(6),
                     border: Border.all(width: 1, color: kGreyColor),
-                    image: DecorationImage(
+                    image: const DecorationImage(
                       image: AssetImage('lib/assets/icon-unavailable.png'),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 15),
+                  margin: const EdgeInsets.only(right: 15),
                   child: Text(
                     'Unvailable',
                     style:
@@ -52,15 +53,15 @@ class ChooseSeatPage extends StatelessWidget {
                 Container(
                   width: 16,
                   height: 16,
-                  margin: EdgeInsets.only(right: 6),
-                  decoration: BoxDecoration(
+                  margin: const EdgeInsets.only(right: 6),
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('lib/assets/icon-selected.png'),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 15),
+                  margin: const EdgeInsets.only(right: 15),
                   child: Text(
                     'Selected',
                     style:
@@ -75,15 +76,15 @@ class ChooseSeatPage extends StatelessWidget {
                 Container(
                   width: 16,
                   height: 16,
-                  margin: EdgeInsets.only(right: 6),
-                  decoration: BoxDecoration(
+                  margin: const EdgeInsets.only(right: 6),
+                  decoration: const BoxDecoration(
                     image: DecorationImage(
                       image: AssetImage('lib/assets/icon-available.png'),
                     ),
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.only(right: 15),
+                  margin: const EdgeInsets.only(right: 15),
                   child: Text(
                     'Available',
                     style:
@@ -97,28 +98,203 @@ class ChooseSeatPage extends StatelessWidget {
       );
     }
 
-    Widget chooseSeat(){
+    Widget chooseSeat() {
       return Container(
         height: 500,
         width: double.infinity,
         margin: EdgeInsets.symmetric(horizontal: defaultMargin, vertical: 30),
-        padding: EdgeInsets.symmetric(horizontal: 22, vertical: 30),
+        padding: const EdgeInsets.symmetric(horizontal: 22, vertical: 30),
         decoration: BoxDecoration(
-          color: kWhiteColor,
-          borderRadius: BorderRadius.circular(defaultRadius)
-        ),
+            color: kWhiteColor,
+            borderRadius: BorderRadius.circular(defaultRadius)),
         child: Column(
           children: [
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Expanded(child: Text('A')),
-                 Expanded(child: Text('A')),
-                Expanded(child: Text('A')),
-                 Expanded(child: Text('A')),
-                 Expanded(child: Text('A')),
+                SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: Center(
+                      child: Text(
+                        'A',
+                        style: greyTextStyle.copyWith(color: kGreyColor),
+                      ),
+                    )),
+                SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: Center(
+                      child: Text(
+                        'B',
+                        style: greyTextStyle.copyWith(color: kGreyColor),
+                      ),
+                    )),
+                const SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: Center(
+                      child: Text(''),
+                    )),
+                SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: Center(
+                        child: Text(
+                      'C',
+                      style: greyTextStyle.copyWith(color: kGreyColor),
+                    ))),
+                SizedBox(
+                    height: 48,
+                    width: 48,
+                    child: Center(
+                      child: Text(
+                        'D',
+                        style: greyTextStyle.copyWith(color: kGreyColor),
+                      ),
+                    )),
               ],
-            )
+            ),
+            Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 2,
+                  ),
+                  Container(
+                    height: 48,
+                    width: 48,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(child: Text('1', style: greyTextStyle.copyWith(),)),
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                ],
+              ),
+            ),
+             Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 2,
+                  ),
+                  Container(
+                    height: 48,
+                    width: 48,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(child: Text('1', style: greyTextStyle.copyWith(),)),
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                ],
+              ),
+            ),
+             Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 2,
+                  ),
+                  Container(
+                    height: 48,
+                    width: 48,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(child: Text('1', style: greyTextStyle.copyWith(),)),
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                ],
+              ),
+            ),
+             Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 2,
+                  ),
+                  Container(
+                    height: 48,
+                    width: 48,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(child: Text('1', style: greyTextStyle.copyWith(),)),
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                ],
+              ),
+            ),
+             Container(
+              margin: EdgeInsets.only(bottom: 16),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  SeatItem(
+                    status: 1,
+                  ),
+                  SeatItem(
+                    status: 2,
+                  ),
+                  Container(
+                    height: 48,
+                    width: 48,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                    child: Center(child: Text('1', style: greyTextStyle.copyWith(),)),
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                  SeatItem(
+                    status: 3,
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       );
@@ -129,11 +305,7 @@ class ChooseSeatPage extends StatelessWidget {
         backgroundColor: kBackgroundColor,
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            title(),
-            statusSeat(),
-            chooseSeat()
-          ],
+          children: [title(), statusSeat(), chooseSeat()],
         ),
       ),
     );

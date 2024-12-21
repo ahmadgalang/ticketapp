@@ -43,7 +43,7 @@ class DetailPage extends StatelessWidget {
             ),
             Container(
               margin: EdgeInsets.only(
-                  left: defaultMargin, top: 260, right: defaultMargin),
+                  left: defaultMargin, top: 300, right: defaultMargin),
               width: double.infinity,
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -103,7 +103,7 @@ class DetailPage extends StatelessWidget {
       Widget priceButton() {
         return Container(
           margin: EdgeInsets.only(
-              top: 10, left: defaultMargin, right: defaultMargin),
+              top: 10, left: defaultMargin, right: defaultMargin, bottom: 10),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -142,7 +142,7 @@ class DetailPage extends StatelessWidget {
             margin: EdgeInsets.only(
                 left: defaultMargin,
                 right: defaultMargin,
-                top: 370,
+                top: 400,
                 bottom: 10),
             width: double.infinity,
             height: 446,
