@@ -49,8 +49,8 @@ class CustomPopularDestination extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       Container(
-                        height: 24,
-                        width: 24,
+                        height: 20,
+                        width: 20,
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: AssetImage('lib/assets/icon-star.png'),
@@ -60,7 +60,7 @@ class CustomPopularDestination extends StatelessWidget {
                       Text(
                         '4.7',
                         style: blackTextStyle.copyWith(
-                            fontSize: 14, fontWeight: medium),
+                            fontSize: 14, fontWeight: bold),
                       )
                     ],
                   ),

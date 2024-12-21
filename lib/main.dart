@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketapp/ui/pages/bonus_page.dart';
+import 'package:ticketapp/ui/pages/choose_seat_page.dart';
 import 'package:ticketapp/ui/pages/detail_page.dart';
 import 'package:ticketapp/ui/pages/get_started_page.dart';
 import 'package:ticketapp/ui/pages/main_page.dart';
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       '/sign-up': (context) => const SignUpPage(),
       '/bonus-page': (context) => const BonusPage(),
       '/main': (context) => const MainPage(),
-      '/detail-page': (context) => const DetailPage()
+      '/detail-page': (context) => const DetailPage(),
+      '/choose-seat' : (context) => const ChooseSeatPage()
     });
   }
 }
