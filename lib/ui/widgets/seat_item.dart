@@ -35,7 +35,7 @@ class SeatItem extends StatelessWidget {
   child(){
     switch (status) {
       case 1:
-        return SizedBox();
+        return const SizedBox();
       case 2:
         return Center(
           child: Text('YOU' , style: whiteTextStyle.copyWith(
@@ -44,7 +44,7 @@ class SeatItem extends StatelessWidget {
           ),),
         );
       case 3:
-        return SizedBox();
+        return const SizedBox();
       default:
         break;
     }
