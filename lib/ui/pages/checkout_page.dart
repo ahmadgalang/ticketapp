@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ticketapp/shared/theme.dart';
+import 'package:ticketapp/ui/pages/success_page.dart';
 import 'package:ticketapp/ui/widgets/checkout_item.dart';
 import 'package:ticketapp/ui/widgets/custom_button.dart';
 
@@ -252,7 +253,13 @@ class CheckoutPage extends StatelessWidget {
         margin: EdgeInsets.symmetric(horizontal: defaultMargin),
         child: CustomButton(
             onTap: () {
-              Navigator.pushNamed(context, '/success');
+              Navigator.pushAndRemoveUntil(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => SuccessPage(),
+                ),
+                (route) => false,
+              );
             },
             buttonName: 'Pay Now'),
       );
